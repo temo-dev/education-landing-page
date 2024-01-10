@@ -45,7 +45,7 @@ export function AuthenticationForm(props: PaperProps) {
         <GoogleButton radius="xl">Google</GoogleButton>
       </Group>
 
-      {/* <Divider label="Or continue with email" labelPosition="center" my="lg" />
+      <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit(() => {})}>
         <Stack>
@@ -115,7 +115,7 @@ export function AuthenticationForm(props: PaperProps) {
             {upperFirst(type)}
           </Button>
         </Group>
-      </form> */}
+      </form>
     </Paper>
   );
 }
