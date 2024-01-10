@@ -5,11 +5,8 @@ import {
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
   Divider,
-  Center,
   Box,
   Burger,
   Drawer,
@@ -17,8 +14,8 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
+  Avatar,
 } from "@mantine/core";
-// import { MantineLogo } from '@mantinex/mantine-logo';
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconNotification,
@@ -27,9 +24,10 @@ import {
   IconChartPie3,
   IconFingerprint,
   IconCoin,
-  IconChevronDown,
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
+import { modals } from "@mantine/modals";
+import { AuthenticationForm } from "../AuthenticationForm/AuthenticationForm";
 
 const mockdata = [
   {
@@ -91,12 +89,17 @@ export function HeaderMegaMenu() {
     </UnstyledButton>
   ));
 
+  const openModal = () =>
+    modals.open({
+      title: "Đăng Ký Trở Thành Thành Viên",
+      children: <AuthenticationForm />,
+    });
   return (
     <Box pb={0}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          {/* <MantineLogo size={30} /> */}
           <Group h="100%" gap={0} visibleFrom="sm">
+            <Avatar src={"/assets/anime/smile.png"} />
             <a href="#" className={classes.link}>
               Trang Chủ
             </a>
@@ -112,13 +115,14 @@ export function HeaderMegaMenu() {
             </a>
           </Group>
           <Group visibleFrom="sm">
-            <Button variant="default">Đăng Ký</Button>
-            <Button>Đăng Nhập</Button>
+            {/* <Button variant="default">Đăng Ký</Button> */}
+            <Button onClick={openModal}>Đăng Nhập</Button>
           </Group>
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}
             hiddenFrom="sm"
+            transitionTimingFunction="ease"
           />
         </Group>
       </header>
@@ -127,7 +131,7 @@ export function HeaderMegaMenu() {
         onClose={closeDrawer}
         size="100%"
         padding="md"
-        title="Navigation"
+        title="EduHat - Học Tiếng Séc"
         hiddenFrom="sm"
         zIndex={1000000}
       >
@@ -141,10 +145,6 @@ export function HeaderMegaMenu() {
           </a>
           <Collapse in={linksOpened}>{links}</Collapse>
           <Divider my="sm" />
-          <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default">Đăng Ký</Button>
-            <Button>Đăng Nhập</Button>
-          </Group>
         </ScrollArea>
       </Drawer>
     </Box>

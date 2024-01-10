@@ -1,8 +1,15 @@
 "use client";
 import { Overlay, Container, Title, Button, Text } from "@mantine/core";
 import classes from "./HeroContentLeft.module.css";
+import { AuthenticationForm } from "../AuthenticationForm/AuthenticationForm";
+import { modals } from "@mantine/modals";
 
 export function HeroContentLeft() {
+  const openModal = () =>
+    modals.open({
+      title: "Đăng Ký Trở Thành Thành Viên",
+      children: <AuthenticationForm />,
+    });
   return (
     <div className={classes.hero}>
       <Overlay
@@ -27,6 +34,7 @@ export function HeroContentLeft() {
           size="xl"
           radius="xl"
           className={classes.control}
+          onClick={openModal}
         >
           Bắt Đầu
         </Button>

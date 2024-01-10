@@ -30,6 +30,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/is-prop-valid@npm:^0.8.2":
+  version: 0.8.8
+  resolution: "@emotion/is-prop-valid@npm:0.8.8"
+  dependencies:
+    "@emotion/memoize": "npm:0.7.4"
+  checksum: f6be625f067c7fa56a12a4edaf090715616dc4fc7803c87212831f38c969350107b9709b1be54100e53153b18d9fa068eb4bf4f9ac66a37a8edf1bac9b64e279
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:0.7.4":
+  version: 0.7.4
+  resolution: "@emotion/memoize@npm:0.7.4"
+  checksum: b2376548fc147b43afd1ff005a80a1a025bd7eb4fb759fdb23e96e5ff290ee8ba16628a332848d600fb91c3cdc319eee5395fa33d8875e5d5a8c4ce18cddc18e
+  languageName: node
+  linkType: hard
+
 "@eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -167,12 +183,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/form@npm:^7.4.1":
+  version: 7.4.1
+  resolution: "@mantine/form@npm:7.4.1"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    klona: "npm:^2.0.6"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 8901e2bf681052114829cc09a1c8e7e5a75a153717a44c2932be26213af9ab461bfc7cd33ac6cadcb0b1bb95d23e1d5b4f3c471db9de9a65cce42b5cb8505bbd
+  languageName: node
+  linkType: hard
+
 "@mantine/hooks@npm:7.4.0":
   version: 7.4.0
   resolution: "@mantine/hooks@npm:7.4.0"
   peerDependencies:
     react: ^18.2.0
   checksum: 6d38ba6cbe05594ef3df5e350bc31985b2f72ec05613cf81d3c83f9d0e8bc48564b1cfa0639886460c7ed476f8be67a9b587e8e79486ded9cd93e53a533d36d2
+  languageName: node
+  linkType: hard
+
+"@mantine/modals@npm:^7.4.1":
+  version: 7.4.1
+  resolution: "@mantine/modals@npm:7.4.1"
+  peerDependencies:
+    "@mantine/core": 7.4.1
+    "@mantine/hooks": 7.4.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 76604ca51a4804cc3f250203543e6a26c571c248d7730362e0895b1975f9dd22fb021cc4d610bdd402f4808191c5d0f9fc9ed5721674df3e0b3b78fd04559d3c
   languageName: node
   linkType: hard
 
@@ -1561,6 +1601,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^10.18.0":
+  version: 10.18.0
+  resolution: "framer-motion@npm:10.18.0"
+  dependencies:
+    "@emotion/is-prop-valid": "npm:^0.8.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  dependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 0aea1b3dc5cf06687e31f3b6c0b6b1a2cd070afdd4a9d38ebf15715c662ca1d6d1c25e6778695e5ebff37a6ce92b031d036c02570370e6057e66aa9de9f9370f
+  languageName: node
+  linkType: hard
+
 "fs.realpath@npm:^1.0.0":
   version: 1.0.0
   resolution: "fs.realpath@npm:1.0.0"
@@ -2322,6 +2383,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"klona@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "klona@npm:2.0.6"
+  checksum: 94eed2c6c2ce99f409df9186a96340558897b3e62a85afdc1ee39103954d2ebe1c1c4e9fe2b0952771771fa96d70055ede8b27962a7021406374fdb695fd4d01
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:^0.3.20":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
@@ -2389,13 +2457,16 @@ __metadata:
   resolution: "mantine-minimal-next-template@workspace:."
   dependencies:
     "@mantine/core": "npm:7.4.0"
+    "@mantine/form": "npm:^7.4.1"
     "@mantine/hooks": "npm:7.4.0"
+    "@mantine/modals": "npm:^7.4.1"
     "@tabler/icons-react": "npm:^2.45.0"
     "@types/node": "npm:20.8.10"
     "@types/react": "npm:18.2.36"
     "@types/react-dom": "npm:18.2.14"
     eslint: "npm:8.53.0"
     eslint-config-next: "npm:14.0.1"
+    framer-motion: "npm:^10.18.0"
     next: "npm:14.0.1"
     postcss: "npm:^8.4.31"
     postcss-preset-mantine: "npm:1.12.3"
