@@ -7,17 +7,15 @@ import { toast } from "sonner";
 import Router from "next/router";
 import { modals } from "@mantine/modals";
 
-export interface SignUpInputType {
-  email: string;
+export interface LoginInputType {
+  identifier: string;
   password: string;
-  name: string;
 }
-async function signUp(input: SignUpInputType) {
+async function login(input: LoginInputType) {
   return http
-    .post(API_ENDPOINTS.REGISTER, {
-      username: input.name,
+    .post(API_ENDPOINTS.LOGIN, {
+      identifier: input.identifier,
       password: input.password,
-      email: input.email,
     })
     .then((res) => {
       return {
@@ -26,12 +24,12 @@ async function signUp(input: SignUpInputType) {
       };
     });
 }
-export const useSignUpMutation = () => {
-  return useMutation((input: SignUpInputType) => signUp(input), {
+export const useLoginMutation = () => {
+  return useMutation((input: LoginInputType) => login(input), {
     onSuccess: (data) => {
       Cookies.set("auth_token", data.accessToken);
       modals.closeAll();
-      toast.success("Đăng Ký Thành Công!");
+      toast.success("Đăng nhập Thành Công!");
     },
     onError: (data) => {
       console.log(data, "login error response");

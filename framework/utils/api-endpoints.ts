@@ -1,4 +1,4 @@
 export const API_ENDPOINTS = {
-  LOGIN: "/auth/customer/login",
+  LOGIN: "/auth/local",
   REGISTER: "/auth/local/register",
 };

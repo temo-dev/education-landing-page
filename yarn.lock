@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2":
   version: 7.23.8
   resolution: "@babel/runtime@npm:7.23.8"
   dependencies:
@@ -222,30 +222,6 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: 76604ca51a4804cc3f250203543e6a26c571c248d7730362e0895b1975f9dd22fb021cc4d610bdd402f4808191c5d0f9fc9ed5721674df3e0b3b78fd04559d3c
-  languageName: node
-  linkType: hard
-
-"@mantine/notifications@npm:^7.4.1":
-  version: 7.4.1
-  resolution: "@mantine/notifications@npm:7.4.1"
-  dependencies:
-    "@mantine/store": "npm:7.4.1"
-    react-transition-group: "npm:4.4.5"
-  peerDependencies:
-    "@mantine/core": 7.4.1
-    "@mantine/hooks": 7.4.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  checksum: c24cee68e4a200a8f92e21f78ed3208f7a4fdbb0084c1cd712e5204cd37750b52d295852498704414bc220fdd8187b0f142aafddd25b1e29bec146124371fd7b
-  languageName: node
-  linkType: hard
-
-"@mantine/store@npm:7.4.1":
-  version: 7.4.1
-  resolution: "@mantine/store@npm:7.4.1"
-  peerDependencies:
-    react: ^18.2.0
-  checksum: f5e8304209dbba20d9a8a3745ef64504a717770b1771e8ee24e4b00a866264eada5a4cf5c5da438a81afabf979149ea5d97e8591c1007cc0e91fcdcd10cfdc88
   languageName: node
   linkType: hard
 
@@ -1112,16 +1088,6 @@ __metadata:
   dependencies:
     esutils: "npm:^2.0.2"
   checksum: c96bdccabe9d62ab6fea9399fdff04a66e6563c1d6fb3a3a063e8d53c3bb136ba63e84250bbf63d00086a769ad53aef92d2bd483f03f837fc97b71cbee6b2520
-  languageName: node
-  linkType: hard
-
-"dom-helpers@npm:^5.0.1":
-  version: 5.2.1
-  resolution: "dom-helpers@npm:5.2.1"
-  dependencies:
-    "@babel/runtime": "npm:^7.8.7"
-    csstype: "npm:^3.0.2"
-  checksum: f735074d66dd759b36b158fa26e9d00c9388ee0e8c9b16af941c38f014a37fc80782de83afefd621681b19ac0501034b4f1c4a3bff5caa1b8667f0212b5e124c
   languageName: node
   linkType: hard
 
@@ -2609,7 +2575,6 @@ __metadata:
     "@mantine/form": "npm:^7.4.1"
     "@mantine/hooks": "npm:7.4.0"
     "@mantine/modals": "npm:^7.4.1"
-    "@mantine/notifications": "npm:^7.4.1"
     "@tabler/icons-react": "npm:^2.45.0"
     "@types/js-cookie": "npm:^3"
     "@types/node": "npm:20.8.10"
@@ -2627,6 +2592,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-query: "npm:^3.39.3"
+    sonner: "npm:^1.3.1"
     typescript: "npm:5.2.2"
     zustand: "npm:^4.4.7"
   languageName: unknown
@@ -3141,7 +3107,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -3284,21 +3250,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 33d38a6d96cf584842695b50c341980944ece23a42155bf0bd1958f02396adb185c7720b88678dc677817fe111783059c0ebcdf7761644006892583b10e258ee
-  languageName: node
-  linkType: hard
-
-"react-transition-group@npm:4.4.5":
-  version: 4.4.5
-  resolution: "react-transition-group@npm:4.4.5"
-  dependencies:
-    "@babel/runtime": "npm:^7.5.5"
-    dom-helpers: "npm:^5.0.1"
-    loose-envify: "npm:^1.4.0"
-    prop-types: "npm:^15.6.2"
-  peerDependencies:
-    react: ">=16.6.0"
-    react-dom: ">=16.6.0"
-  checksum: 2ba754ba748faefa15f87c96dfa700d5525054a0141de8c75763aae6734af0740e77e11261a1e8f4ffc08fd9ab78510122e05c21c2d79066c38bb6861a886c82
   languageName: node
   linkType: hard
 
@@ -3586,6 +3537,16 @@ __metadata:
   version: 4.0.0
   resolution: "slash@npm:4.0.0"
   checksum: b522ca75d80d107fd30d29df0549a7b2537c83c4c4ecd12cd7d4ea6c8aaca2ab17ada002e7a1d78a9d736a0261509f26ea5b489082ee443a3a810586ef8eff18
+  languageName: node
+  linkType: hard
+
+"sonner@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "sonner@npm:1.3.1"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 324d2b2edb8bf15a38239f67e533bbf9f38425adf432c9542e7a9610b7451ec5d4082d2e8ddb564096f63f44ba7ec4d2e137f8b0af1786a0becac346fae2b28a
   languageName: node
   linkType: hard
 
