@@ -2,7 +2,7 @@
 import cx from "clsx";
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./HeroImageBackground.module.css";
-import { AuthenticationForm } from "../AuthenticationForm/AuthenticationForm";
+import { AuthenticationForm } from "../AuthenticationForm";
 import { modals } from "@mantine/modals";
 
 export function HeroImageBackground() {

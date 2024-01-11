@@ -27,7 +27,7 @@ import {
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
 import { modals } from "@mantine/modals";
-import { AuthenticationForm } from "../AuthenticationForm/AuthenticationForm";
+import { AuthenticationForm } from "../AuthenticationForm";
 
 const mockdata = [
   {

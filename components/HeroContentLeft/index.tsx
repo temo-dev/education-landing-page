@@ -1,7 +1,7 @@
 "use client";
 import { Overlay, Container, Title, Button, Text } from "@mantine/core";
 import classes from "./HeroContentLeft.module.css";
-import { AuthenticationForm } from "../AuthenticationForm/AuthenticationForm";
+import { AuthenticationForm } from "../AuthenticationForm";
 import { modals } from "@mantine/modals";
 
 export function HeroContentLeft() {

@@ -15,8 +15,14 @@ import {
   Stack,
 } from "@mantine/core";
 import { GoogleButton } from "../GoogleButton";
+import {
+  SignUpInputType,
+  useSignUpMutation,
+} from "../../framework/auth/use-signup";
+import { notifications } from "@mantine/notifications";
 
 export function AuthenticationForm(props: PaperProps) {
+  const { mutate: signUp, isLoading } = useSignUpMutation();
   const [type, toggle] = useToggle(["login", "register"]);
   const form = useForm({
     initialValues: {
@@ -34,7 +40,14 @@ export function AuthenticationForm(props: PaperProps) {
           : null,
     },
   });
-
+  function handleSumbit(value: SignUpInputType) {
+    console.log("value", value);
+    signUp({
+      name: value.name,
+      email: value.email,
+      password: value.password,
+    });
+  }
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" fw={500}>
@@ -47,7 +60,14 @@ export function AuthenticationForm(props: PaperProps) {
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form
+        onSubmit={form.onSubmit((value) =>
+          notifications.show({
+            title: "Default notification",
+            message: "Hey there, your code is awesome! 🤥",
+          })
+        )}
+      >
         <Stack>
           {type === "register" && (
             <TextInput
