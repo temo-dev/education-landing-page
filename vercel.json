@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NEXT_PUBLIC_REST_API_ENDPOINT": "https://server-strapi-education.onrender.com/api"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_REST_API_ENDPOINT": "https://server-strapi-education.onrender.com/api"
+    }
+  }
+}
