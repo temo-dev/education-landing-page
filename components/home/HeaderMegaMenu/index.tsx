@@ -27,7 +27,7 @@ import {
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
 import { modals } from "@mantine/modals";
-import { AuthenticationForm } from "@components/common/AuthenticationForm";
+import { AuthenticationForm } from "@components/home/AuthenticationForm";
 import { useRouter } from "next/navigation";
 import { getAuthToken } from "@framework/utils/get-token";
 
