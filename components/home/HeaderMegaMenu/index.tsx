@@ -27,7 +27,9 @@ import {
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
 import { modals } from "@mantine/modals";
-import { AuthenticationForm } from "../AuthenticationForm";
+import { AuthenticationForm } from "../../common/AuthenticationForm";
+import { useRouter } from "next/navigation";
+import { getAuthToken } from "../../../framework/utils/get-token";
 
 const mockdata = [
   {
@@ -63,6 +65,8 @@ const mockdata = [
 ];
 
 export function HeaderMegaMenu() {
+  const router = useRouter();
+  const authToken = getAuthToken();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -89,11 +93,15 @@ export function HeaderMegaMenu() {
     </UnstyledButton>
   ));
 
-  const openModal = () =>
-    modals.open({
+  const openModal = () => {
+    if (authToken !== undefined) {
+      return router.push("/game");
+    }
+    return modals.open({
       title: "Đăng Ký Trở Thành Thành Viên",
       children: <AuthenticationForm />,
     });
+  };
   return (
     <Box pb={0}>
       <header className={classes.header}>
@@ -101,7 +109,7 @@ export function HeaderMegaMenu() {
           <Group h="100%" gap={0} visibleFrom="sm">
             <Avatar src={"/assets/anime/smile.png"} />
             <a href="#" className={classes.link}>
-              Trang Chủ
+              Giới Thiệu
             </a>
             <HoverCard
               width={600}
@@ -110,13 +118,10 @@ export function HeaderMegaMenu() {
               shadow="md"
               withinPortal
             ></HoverCard>
-            <a href="#" className={classes.link}>
-              Thử Thách
-            </a>
           </Group>
           <Group visibleFrom="sm">
             {/* <Button variant="default">Đăng Ký</Button> */}
-            <Button onClick={openModal}>Đăng Nhập</Button>
+            <Button onClick={openModal}>Vào Game</Button>
           </Group>
           <Burger
             opened={drawerOpened}
@@ -137,11 +142,8 @@ export function HeaderMegaMenu() {
       >
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
-          <a href="#" className={classes.link}>
+          <a href="/" className={classes.link}>
             Giới Thiệu
-          </a>
-          <a href="#" className={classes.link}>
-            Thử Thách
           </a>
           <Collapse in={linksOpened}>{links}</Collapse>
           <Divider my="sm" />

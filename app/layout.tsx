@@ -7,7 +7,11 @@ import { theme } from "../theme";
 import { ReactQueryProvider } from "../lib/ReactQueryProvider";
 import { Toaster } from "sonner";
 
-export default function RootLayout({ children }: { children: any }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <ReactQueryProvider>
       <html lang="en">

@@ -1,16 +1,25 @@
 "use client";
-import cx from "clsx";
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./HeroImageBackground.module.css";
-import { AuthenticationForm } from "../AuthenticationForm";
+import { AuthenticationForm } from "../../common/AuthenticationForm";
 import { modals } from "@mantine/modals";
+import { useRouter } from "next/navigation";
+import { getAuthToken } from "../../../framework/utils/get-token";
 
 export function HeroImageBackground() {
-  const openModal = () =>
-    modals.open({
+  const router = useRouter();
+  const authToken = getAuthToken();
+
+  const openModal = () => {
+    if (authToken !== undefined) {
+      return router.push("/game");
+    }
+    return modals.open({
       title: "Đăng Ký Trở Thành Thành Viên",
       children: <AuthenticationForm />,
     });
+  };
+
   return (
     <div className={classes.wrapper}>
       <Overlay color="#000" opacity={0.65} zIndex={1} />
@@ -44,7 +53,7 @@ export function HeroImageBackground() {
             size="lg"
             onClick={openModal}
           >
-            Bắt Đầu
+            Vào Game
           </Button>
         </div>
       </div>

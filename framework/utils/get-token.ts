@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-export const getToken = () => {
+export const getAuthToken = () => {
   if (typeof window === undefined) {
     return null;
   }

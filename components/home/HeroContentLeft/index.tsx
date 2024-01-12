@@ -1,15 +1,23 @@
 "use client";
 import { Overlay, Container, Title, Button, Text } from "@mantine/core";
 import classes from "./HeroContentLeft.module.css";
-import { AuthenticationForm } from "../AuthenticationForm";
+import { AuthenticationForm } from "../../common/AuthenticationForm";
 import { modals } from "@mantine/modals";
+import { useRouter } from "next/navigation";
+import { getAuthToken } from "../../../framework/utils/get-token";
 
 export function HeroContentLeft() {
-  const openModal = () =>
-    modals.open({
+  const router = useRouter();
+  const authToken = getAuthToken();
+  const openModal = () => {
+    if (authToken !== undefined) {
+      return router.push("/game");
+    }
+    return modals.open({
       title: "Đăng Ký Trở Thành Thành Viên",
       children: <AuthenticationForm />,
     });
+  };
   return (
     <div className={classes.hero}>
       <Overlay
@@ -36,7 +44,7 @@ export function HeroContentLeft() {
           className={classes.control}
           onClick={openModal}
         >
-          Bắt Đầu
+          Vào Game
         </Button>
       </Container>
     </div>

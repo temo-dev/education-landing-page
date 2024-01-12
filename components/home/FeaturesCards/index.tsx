@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   Container,
   rem,
-  useMantineTheme,
 } from "@mantine/core";
 import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
 import classes from "./FeaturesCards.module.css";
@@ -35,7 +34,6 @@ const mockdata = [
 ];
 
 export function FeaturesCards() {
-  const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
     <Card
       key={feature.title}

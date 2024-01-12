@@ -4,7 +4,7 @@ import http from "../utils/http";
 import { useMutation } from "react-query";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 import { modals } from "@mantine/modals";
 
 export interface SignUpInputType {
@@ -27,11 +27,13 @@ async function signUp(input: SignUpInputType) {
     });
 }
 export const useSignUpMutation = () => {
+  const router = useRouter();
   return useMutation((input: SignUpInputType) => signUp(input), {
     onSuccess: (data) => {
       Cookies.set("auth_token", data.accessToken);
       modals.closeAll();
       toast.success("Đăng Ký Thành Công!");
+      router.push("/game");
     },
     onError: (data) => {
       console.log(data, "login error response");

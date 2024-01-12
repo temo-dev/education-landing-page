@@ -14,9 +14,9 @@ import {
   Anchor,
   Stack,
 } from "@mantine/core";
-import { GoogleButton } from "../GoogleButton";
-import { useSignUpMutation } from "../../framework/auth/use-signup";
-import { useLoginMutation } from "../../framework/auth/use-login";
+import { GoogleButton } from "../../ui/GoogleButton";
+import { useSignUpMutation } from "../../../framework/auth/use-signup";
+import { useLoginMutation } from "../../../framework/auth/use-login";
 import { toast } from "sonner";
 
 export function AuthenticationForm(props: PaperProps) {
@@ -32,26 +32,25 @@ export function AuthenticationForm(props: PaperProps) {
     },
 
     validate: {
-      email: (val) => (/^\S+@\S+$/.test(val) ? null : "Invalid email"),
+      email: (val) => (/^\S+@\S+$/.test(val) ? null : "Email không hợp lệ"),
       password: (val) =>
-        val.length <= 6
-          ? "Password should include at least 6 characters"
-          : null,
+        val.length <= 6 ? "Mật khẩu phải ít nhất 6 ký tự" : null,
     },
   });
   function handleSumbit(value: any) {
     toast.loading("Loading data");
     if (type === "login") {
-      return login({
+      login({
         identifier: value.email,
         password: value.password,
       });
+    } else {
+      signUp({
+        name: value.name,
+        email: value.email,
+        password: value.password,
+      });
     }
-    return signUp({
-      name: value.name,
-      email: value.email,
-      password: value.password,
-    });
   }
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
@@ -63,14 +62,14 @@ export function AuthenticationForm(props: PaperProps) {
         <GoogleButton radius="xl">Google</GoogleButton>
       </Group>
 
-      <Divider label="Or continue with email" labelPosition="center" my="lg" />
+      <Divider label="Hoặc Dùng Email" labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit((value) => handleSumbit(value))}>
         <Stack>
           {type === "register" && (
             <TextInput
-              label="Name"
-              placeholder="Your name"
+              label="Tên Nhân Vật"
+              placeholder="Tên Nhân Vật"
               value={form.values.name}
               onChange={(event) =>
                 form.setFieldValue("name", event.currentTarget.value)
@@ -82,7 +81,7 @@ export function AuthenticationForm(props: PaperProps) {
           <TextInput
             required
             label="Email"
-            placeholder="hello@mantine.dev"
+            placeholder="emailcuatoi@gmail.com"
             value={form.values.email}
             onChange={(event) =>
               form.setFieldValue("email", event.currentTarget.value)
@@ -93,22 +92,19 @@ export function AuthenticationForm(props: PaperProps) {
 
           <PasswordInput
             required
-            label="Password"
-            placeholder="Your password"
+            label="Mật Khẩu"
+            placeholder="Mật Khẩu"
             value={form.values.password}
             onChange={(event) =>
               form.setFieldValue("password", event.currentTarget.value)
             }
-            error={
-              form.errors.password &&
-              "Password should include at least 6 characters"
-            }
+            error={form.errors.password && "Mật khẩu phải ít nhất 6 ký tự"}
             radius="md"
           />
 
           {type === "register" && (
             <Checkbox
-              label="I accept terms and conditions"
+              label="Tôi đã đọc và đồng ý với các điều khoản !"
               checked={form.values.terms}
               onChange={(event) =>
                 form.setFieldValue("terms", event.currentTarget.checked)
@@ -126,11 +122,11 @@ export function AuthenticationForm(props: PaperProps) {
             size="xs"
           >
             {type === "register"
-              ? "Already have an account? Login"
-              : "Don't have an account? Register"}
+              ? "Bạn có đã có 1 tài khoản?"
+              : "Tôi chưa có tài khoản nào!"}
           </Anchor>
           <Button type="submit" radius="xl">
-            {upperFirst(type)}
+            {upperFirst(type === "register" ? "Đăng Ký" : "Đăng Nhập")}
           </Button>
         </Group>
       </form>
