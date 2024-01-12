@@ -19,7 +19,7 @@ import { useSignUpMutation } from "@framework/auth/use-signup";
 import { useLoginMutation } from "@framework/auth/use-login";
 import { toast } from "sonner";
 
-export function AuthenticationForm(props: PaperProps) {
+export const AuthenticationForm = (props: PaperProps) => {
   const { mutate: signUp } = useSignUpMutation();
   const { mutate: login } = useLoginMutation();
   const [type, toggle] = useToggle(["login", "register"]);
@@ -132,4 +132,4 @@ export function AuthenticationForm(props: PaperProps) {
       </form>
     </Paper>
   );
-}
+};
