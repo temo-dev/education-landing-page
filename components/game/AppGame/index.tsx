@@ -29,9 +29,6 @@ export function AppGame() {
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Avatar src={"/assets/anime/smile.png"} size={40} />
-          <Title size="h3" fw={700}>
-            EduHat - Học Bất Cứ Nơi Đâu
-          </Title>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
