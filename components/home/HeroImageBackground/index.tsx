@@ -1,10 +1,10 @@
 "use client";
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./HeroImageBackground.module.css";
-import { AuthenticationForm } from "../../common/AuthenticationForm";
+import { AuthenticationForm } from "@components/common/AuthenticationForm";
 import { modals } from "@mantine/modals";
 import { useRouter } from "next/navigation";
-import { getAuthToken } from "../../../framework/utils/get-token";
+import { getAuthToken } from "@framework/utils/get-token";
 
 export function HeroImageBackground() {
   const router = useRouter();

@@ -14,9 +14,9 @@ import {
   Anchor,
   Stack,
 } from "@mantine/core";
-import { GoogleButton } from "../../ui/GoogleButton";
-import { useSignUpMutation } from "../../../framework/auth/use-signup";
-import { useLoginMutation } from "../../../framework/auth/use-login";
+import { GoogleButton } from "@components/ui/GoogleButton";
+import { useSignUpMutation } from "@framework/auth/use-signup";
+import { useLoginMutation } from "@framework/auth/use-login";
 import { toast } from "sonner";
 
 export function AuthenticationForm(props: PaperProps) {

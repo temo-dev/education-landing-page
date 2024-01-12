@@ -1,10 +1,10 @@
 "use client";
 import { Overlay, Container, Title, Button, Text } from "@mantine/core";
 import classes from "./HeroContentLeft.module.css";
-import { AuthenticationForm } from "../../common/AuthenticationForm";
+import { AuthenticationForm } from "@components/common/AuthenticationForm";
 import { modals } from "@mantine/modals";
 import { useRouter } from "next/navigation";
-import { getAuthToken } from "../../../framework/utils/get-token";
+import { getAuthToken } from "@framework/utils/get-token";
 
 export function HeroContentLeft() {
   const router = useRouter();

@@ -1,4 +1,4 @@
-import { AppGame } from "../../components/game/AppGame";
+import { AppGame } from "@components/game/AppGame";
 
 export default function GamePage() {
   return (

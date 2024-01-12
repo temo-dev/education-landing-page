@@ -4,7 +4,7 @@ import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { theme } from "../theme";
-import { ReactQueryProvider } from "../lib/ReactQueryProvider";
+import { ReactQueryProvider } from "@lib/ReactQueryProvider";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
