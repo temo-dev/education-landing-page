@@ -1,0 +1,10 @@
+.background {
+  position: relative;
+  padding-top: rem(100px);
+  padding-bottom: rem(130px);
+  background-image: url(/assets/map/level-1.jpg);
+  background-size: cover;
+  background-position: center;
+  max-height: fit-content;
+  text-align: center;
+}

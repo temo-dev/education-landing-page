@@ -1,0 +1,8 @@
+.mantineMain {
+  position: relative;
+  padding-top: rem(180px);
+  padding-bottom: rem(130px);
+  background-image: url(/assets/hero/heroBackground2.jpg);
+  background-size: cover;
+  background-position: center;
+}

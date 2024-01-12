@@ -27,7 +27,7 @@ import {
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
 import { modals } from "@mantine/modals";
-import { AuthenticationForm } from "@components/home/AuthenticationForm";
+import { AuthenticationForm } from "../AuthenticationForm";
 import { useRouter } from "next/navigation";
 import { getAuthToken } from "@framework/utils/get-token";
 
@@ -129,6 +129,7 @@ export function HeaderMegaMenu() {
             hiddenFrom="sm"
             transitionTimingFunction="ease"
           />
+          <Avatar src={"/assets/anime/smile.png"} hiddenFrom="sm" />
         </Group>
       </header>
       <Drawer

@@ -1,7 +1,7 @@
 "use client";
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./HeroImageBackground.module.css";
-import { AuthenticationForm } from "@components/home/AuthenticationForm";
+import { AuthenticationForm } from "../AuthenticationForm";
 import { modals } from "@mantine/modals";
 import { useRouter } from "next/navigation";
 import { getAuthToken } from "@framework/utils/get-token";
