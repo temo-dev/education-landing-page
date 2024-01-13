@@ -27,7 +27,9 @@ export const Lesson: React.FC<Props> = ({ monster }) => {
         <HoverCard.Target>
           <motion.img
             animate={{
-              scale: [1, 1.1],
+              scale: [1, 1.1, 1],
+              y: [0, 10, 15, 20, 15, 10, 0],
+              x: [0, 2, 4, 6, 4, 2, 0],
             }}
             transition={{
               duration: monster.isOpen ? 2 : 0,
