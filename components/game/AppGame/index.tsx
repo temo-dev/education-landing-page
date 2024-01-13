@@ -1,48 +1,51 @@
 "use client";
-import {
-  AppShell,
-  Avatar,
-  Burger,
-  Divider,
-  Group,
-  Skeleton,
-  Text,
-  Title,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { LevelOne } from "../../ui/map/LevelOne";
-import { FcHome } from "react-icons/fc";
-import { FcPaid } from "react-icons/fc";
-import { FcVip } from "react-icons/fc";
-import Link from "next/link";
+import { useState } from "react";
+import { Stepper, Button, Group } from "@mantine/core";
+import { GameOne } from "../GameOne";
+import { GameTwo } from "../GameTwo";
+import { GameThree } from "../GameThree";
 
 export function AppGame() {
-  const [opened, { toggle }] = useDisclosure();
-
+  const [active, setActive] = useState(0);
+  const nextStep = () =>
+    setActive((current) => (current < 3 ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
   return (
-    <AppShell
-      header={{ height: 50 }}
-      navbar={{ width: 100, breakpoint: "sm", collapsed: { mobile: !opened } }}
-      padding="md"
-    >
-      <AppShell.Header>
-        <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <Avatar src={"/assets/anime/smile.png"} size={40} />
-        </Group>
-      </AppShell.Header>
-      <AppShell.Navbar p="md">
-        <Link href="/">
-          <FcHome size={60} title="Map Game" />
-        </Link>
-        <Divider mb="30px" />
-        <FcPaid size={60} title="Cửa Hàng" />
-        <Divider mb="30px" />
-        <FcVip size={60} title="Thông Tin" />
-      </AppShell.Navbar>
-      <AppShell.Main>
-        <LevelOne />
-      </AppShell.Main>
-    </AppShell>
+    <>
+      <Stepper active={active} onStepClick={setActive} orientation="horizontal">
+        <Stepper.Step
+          label="Khởi Động"
+          description="Củng cố từ vựng"
+          loading={active === 0 ? true : false}
+        >
+          <GameOne />
+        </Stepper.Step>
+        <Stepper.Step
+          label="Tăng Tốc"
+          description="Ghép Câu Để Vượt Bão"
+          loading={active === 1 ? true : false}
+        >
+          <GameTwo />
+        </Stepper.Step>
+        <Stepper.Step
+          label="Về Đích"
+          description="Căng Buồm Ra Khơi Thôi"
+          loading={active === 2 ? true : false}
+        >
+          <GameThree />
+        </Stepper.Step>
+        <Stepper.Completed>
+          Chúc Mừng Bạn Đã Thành Công, Hãy Sang Bài Mới Thôi Nào
+        </Stepper.Completed>
+      </Stepper>
+
+      <Group justify="center" mt="xl">
+        <Button variant="default" onClick={prevStep}>
+          Back
+        </Button>
+        <Button onClick={nextStep}>Next step</Button>
+      </Group>
+    </>
   );
 }

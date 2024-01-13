@@ -1,6 +1,6 @@
 import { AppGame } from "@components/game/AppGame";
 
-export default function GamePage() {
+export default function ShopGamePage() {
   return (
     <div>
       <AppGame />
