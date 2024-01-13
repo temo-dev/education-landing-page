@@ -12,7 +12,7 @@ export function HeroImageBackground() {
 
   const openModal = () => {
     if (authToken !== undefined) {
-      return router.push("/game");
+      return router.push("/main-game/map");
     }
     return modals.open({
       title: "Đăng Ký Trở Thành Thành Viên",

@@ -31,7 +31,7 @@ export const useLoginMutation = () => {
       Cookies.set("auth_token", data.accessToken);
       modals.closeAll();
       toast.success("Đăng nhập Thành Công!");
-      router.push("/game");
+      router.push("/main-game/map");
     },
     onError: (data) => {
       console.log(data, "login error response");
